@@ -2,10 +2,10 @@ name:                hspec-pact
 version:             0.2.0.0
 synopsis:            A DSL for creating PACTs between Haskell consumers and any providers
 description:         Please see README.md
-homepage:            https://github.com/seek-oss/hspec-pact
+homepage:            https://github.com/tmortiboy/hspec-pact
 author:              Tom Mortiboy
 maintainer:          Tom Mortiboy
-copyright:           2020 seek-oss
+copyright:           2020 seek-oss, 2020 hspec-pact contributors
 category:            Web
 build-type:          Simple
 -- extra-source-files:
@@ -93,4 +93,4 @@ executable pact-broker
 
 source-repository head
   type:     git
-  location: https://github.com/seek-oss/hspec-pact.git
+  location: https://github.com/tmortiboy/hspec-pact.git
