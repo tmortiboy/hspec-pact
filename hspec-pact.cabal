@@ -1,0 +1,96 @@
+name:                hspec-pact
+version:             0.2.0.0
+synopsis:            A DSL for creating PACTs between Haskell consumers and any providers
+description:         Please see README.md
+homepage:            https://github.com/seek-oss/hspec-pact
+author:              Tom Mortiboy
+maintainer:          Tom Mortiboy
+copyright:           2020 seek-oss
+category:            Web
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  ghc-options:         -Wall
+  exposed-modules:     Test.Hspec.Pact
+  other-modules:       Codec.Archive.Tar.Unpack
+                     , Test.Hspec.Pact.Broker.API
+                     , Test.Hspec.Pact.Broker.Client
+                     , Test.Hspec.Pact.Types
+                     , Test.Hspec.Pact.MockService
+                     , Test.Hspec.Pact.MockService.API
+                     , Test.Hspec.Pact.MockService.Client
+  build-depends:       base >= 4.7 && < 5
+                     , aeson
+                     , aeson-casing
+                     , async
+                     , bytestring
+                     , containers
+                     , directory
+                     , exceptions
+                     , filepath
+                     , hspec
+                     , http-client
+                     , http-client-tls
+                     , http-conduit
+                     , http-media
+                     , http-types
+                     , lens
+                     , process
+                     , servant
+                     , servant-client
+                     , servant-server
+                     , tar
+                     , tar-conduit
+                     , text
+                     , time
+                     , utf8-string
+                     , zlib
+                     , zip-archive
+  default-language:    Haskell2010
+  default-extensions:  LambdaCase
+                     , OverloadedStrings
+                     , RecordWildCards
+
+test-suite hspec-pact-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , aeson
+                     , hspec
+                     , hspec-pact
+                     , lens
+                     , wreq
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+                     , RecordWildCards
+
+executable pact-broker
+  hs-source-dirs:      broker
+  main-is:             Main.hs
+  other-modules:       Broker.Configuration
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , aeson
+                     , aeson-pretty
+                     , bytestring
+                     , directory
+                     , exceptions
+                     , filepath
+                     , hspec-pact
+                     , http-client
+                     , http-client-tls
+                     , optparse-applicative
+                     , utf8-string
+  default-language:    Haskell2010
+  default-extensions:  LambdaCase
+                     , OverloadedStrings
+                     , RecordWildCards
+
+source-repository head
+  type:     git
+  location: https://github.com/seek-oss/hspec-pact.git

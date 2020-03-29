@@ -1,0 +1,8 @@
+.stack-work/
+/TAGS
+/logs
+/pact/*
+/log
+*.gz
+*.py[cod]
+*.tar
